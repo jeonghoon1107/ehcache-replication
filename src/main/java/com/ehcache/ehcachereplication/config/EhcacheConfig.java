@@ -14,6 +14,7 @@ import org.springframework.core.env.Environment;
 public class EhcacheConfig {
 
     private final Environment env;
+    public static final String CACHE_NAME = "replicationCache";
 
     @Bean
     public EhCacheCacheManager ehCacheCacheManager() {
@@ -24,6 +25,9 @@ public class EhcacheConfig {
 
     @Bean
     public CacheManager cacheManager() {
-        return net.sf.ehcache.CacheManager.getInstance();
+        if(env.acceptsProfiles("local1")) {
+            return net.sf.ehcache.CacheManager.create("src/main/resources/ehcache1.xml");
+        }
+        return net.sf.ehcache.CacheManager.create("src/main/resources/ehcache2.xml");
     }
 }
