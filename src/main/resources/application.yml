@@ -1,3 +1,6 @@
+replication:
+  value: 1
+---
 spring:
   profiles: local1
 server:

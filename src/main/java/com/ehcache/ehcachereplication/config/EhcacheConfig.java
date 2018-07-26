@@ -6,11 +6,14 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 @Configuration
 @EnableCaching
 @RequiredArgsConstructor
 public class EhcacheConfig {
+
+    private final Environment env;
 
     @Bean
     public EhCacheCacheManager ehCacheCacheManager() {
