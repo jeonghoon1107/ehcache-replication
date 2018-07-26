@@ -2,9 +2,12 @@ spring:
   profiles: local1
 server:
   port: 8081
-
+logging:
+  config: classpath:log4j2.xml
 ---
 spring:
   profiles: local2
 server:
   port: 8082
+logging:
+  config: classpath:log4j2.xml

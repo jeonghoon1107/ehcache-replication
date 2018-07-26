@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <Logger name="org.springframework.cache" level="trace" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </Logger>
+    <Logger name="net.sf.ehcache" level="trace" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </Logger>
+</Configuration>
