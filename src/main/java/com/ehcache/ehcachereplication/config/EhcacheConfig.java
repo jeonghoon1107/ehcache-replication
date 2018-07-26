@@ -26,8 +26,8 @@ public class EhcacheConfig {
     @Bean
     public CacheManager cacheManager() {
         if(env.acceptsProfiles("local1")) {
-            return net.sf.ehcache.CacheManager.create("src/main/resources/ehcache1.xml");
+            return net.sf.ehcache.CacheManager.create(this.getClass().getResource("/ehcache1.xml"));
         }
-        return net.sf.ehcache.CacheManager.create("src/main/resources/ehcache2.xml");
+        return net.sf.ehcache.CacheManager.create(this.getClass().getResource("/ehcache2.xml"));
     }
 }
