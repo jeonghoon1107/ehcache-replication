@@ -18,8 +18,7 @@
 
     <cacheManagerPeerProviderFactory
             class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"
-            properties="peerDiscovery=manual, rmiUrls=//127.0.0.1:12345/replicationCache"/>
+            properties="peerDiscovery=automatic, multicastGroupAddress=230.0.0.1, multicastGroupPort=4446, timeToLive=32"/>
     <cacheManagerPeerListenerFactory
-            class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
-            properties="port=1234, socketTimeoutMillis=120000"/>
+            class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"/>
 </ehcache>

@@ -27,7 +27,9 @@ public class EhcacheConfig {
     public CacheManager cacheManager() {
         if(env.acceptsProfiles("local1")) {
             return net.sf.ehcache.CacheManager.create(this.getClass().getResource("/ehcache1.xml"));
+        } else if(env.acceptsProfiles("local2")) {
+            return net.sf.ehcache.CacheManager.create(this.getClass().getResource("/ehcache2.xml"));
         }
-        return net.sf.ehcache.CacheManager.create(this.getClass().getResource("/ehcache2.xml"));
+        return net.sf.ehcache.CacheManager.create(this.getClass().getResource("/ehcache3.xml"));
     }
 }
